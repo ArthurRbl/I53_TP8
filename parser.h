@@ -45,7 +45,8 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    NB = 258
+    NB = 258,
+    NL = 259
   };
 #endif
 
@@ -60,7 +61,7 @@ union YYSTYPE
   struct asa * noeud;
  
 
-#line 64 "parser.h" /* yacc.c:1909  */
+#line 65 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

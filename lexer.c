@@ -376,8 +376,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 4
-#define YY_END_OF_BUFFER 5
+#define YY_NUM_RULES 6
+#define YY_END_OF_BUFFER 7
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -385,19 +385,19 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[9] =
+static yyconst flex_int16_t yy_accept[10] =
     {   0,
-        0,    0,    5,    3,    4,    1,    2,    0
+        0,    0,    7,    5,    4,    3,    1,    2,    0
     } ;
 
 static yyconst YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    3,    1,    1,    1,    1,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    1,    1,    1,
+        1,    2,    1,    1,    1,    1,    4,    1,    1,    1,
+        1,    4,    4,    1,    4,    1,    4,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -422,29 +422,31 @@ static yyconst YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst YY_CHAR yy_meta[5] =
+static yyconst YY_CHAR yy_meta[6] =
     {   0,
-        1,    1,    1,    1
+        1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_uint16_t yy_base[9] =
+static yyconst flex_uint16_t yy_base[10] =
     {   0,
-        0,    0,    5,    6,    6,    6,    6,    6
+        0,    0,    6,    7,    7,    7,    7,    7,    7
     } ;
 
-static yyconst flex_int16_t yy_def[9] =
+static yyconst flex_int16_t yy_def[10] =
     {   0,
-        8,    1,    8,    8,    8,    8,    8,    0
+        9,    1,    9,    9,    9,    9,    9,    9,    0
     } ;
 
-static yyconst flex_uint16_t yy_nxt[11] =
+static yyconst flex_uint16_t yy_nxt[13] =
     {   0,
-        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
+        4,    5,    6,    7,    8,    9,    3,    9,    9,    9,
+        9,    9
     } ;
 
-static yyconst flex_int16_t yy_chk[11] =
+static yyconst flex_int16_t yy_chk[13] =
     {   0,
-        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
+        1,    1,    1,    1,    1,    3,    9,    9,    9,    9,
+        9,    9
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -466,7 +468,7 @@ char *yytext;
 #include <string.h>
 #include "parser.h"
 #define YY_NO_INPUT 1
-#line 470 "lexer.c"
+#line 472 "lexer.c"
 
 #define INITIAL 0
 
@@ -682,10 +684,10 @@ YY_DECL
 		}
 
 	{
-#line 11 "lexer.lex"
+#line 12 "lexer.lex"
 
 
-#line 689 "lexer.c"
+#line 691 "lexer.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -712,13 +714,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 9 )
+				if ( yy_current_state >= 10 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 6 );
+		while ( yy_base[yy_current_state] != 7 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -744,25 +746,36 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "lexer.lex"
+#line 14 "lexer.lex"
 { return yytext[0];}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 "lexer.lex"
+#line 15 "lexer.lex"
 { yylval.nb = atoi(yytext); return NB;}
 	YY_BREAK
 case 3:
+/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 15 "lexer.lex"
-{ fprintf(stderr, "[err lexer] caractere inconnu %c\n",yytext[0]); return 1;}
+#line 16 "lexer.lex"
+{ return NL;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 17 "lexer.lex"
+{}
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 18 "lexer.lex"
+{ fprintf(stderr, "[err lexer] caractere inconnu %c\n",yytext[0]); return 1;}
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 21 "lexer.lex"
 ECHO;
 	YY_BREAK
-#line 766 "lexer.c"
+#line 779 "lexer.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1055,7 +1068,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 9 )
+			if ( yy_current_state >= 10 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1083,11 +1096,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 9 )
+		if ( yy_current_state >= 10 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 8);
+	yy_is_jam = (yy_current_state == 9);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1726,7 +1739,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 17 "lexer.lex"
+#line 21 "lexer.lex"
 
 
 /* A Bison parser, made by GNU Bison 3.0.4.  */
@@ -1776,7 +1789,8 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    NB = 258
+    NB = 258,
+    NL = 259
   };
 #endif
 
@@ -1791,7 +1805,7 @@ union YYSTYPE
   struct asa * noeud;
  
 
-#line 64 "parser.h" /* yacc.c:1909  */
+#line 65 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

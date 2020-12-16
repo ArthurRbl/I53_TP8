@@ -54,11 +54,35 @@ void codegen(asa *p)
   case typeOp:
     switch (p->op.ope) {
       case '+':
-      codegen(p->op.noeud[1]);
-      printf("STORE %d\n", pile++);
-      codegen(p->op.noeud[0]);
-      printf("ADD %d\n", --pile);
-      break;
+        codegen(p->op.noeud[1]);
+        printf("STORE %d\n", pile++);
+        codegen(p->op.noeud[0]);
+        printf("ADD %d\n", --pile);
+        break;
+      case '-':
+        codegen(p->op.noeud[1]);
+        printf("STORE %d\n", pile++);
+        codegen(p->op.noeud[0]);
+        printf("SUB %d\n", --pile);
+        break;
+      case '*':
+        codegen(p->op.noeud[1]);
+        printf("STORE %d\n", pile++);
+        codegen(p->op.noeud[0]);
+        printf("MUL %d\n", --pile);
+        break;
+      case '/':
+        codegen(p->op.noeud[1]);
+        printf("STORE %d\n", pile++);
+        codegen(p->op.noeud[0]);
+        printf("DIV %d\n", --pile);
+        break;
+      case '%':
+        codegen(p->op.noeud[1]);
+        printf("STORE %d\n", pile++);
+        codegen(p->op.noeud[0]);
+        printf("MOD %d\n", --pile);
+        break;
     }
     break;
   default:

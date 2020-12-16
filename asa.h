@@ -7,7 +7,7 @@
 
 #include "ts.h"
 
-typedef enum {typeNb, typeOp} typeNoeud;
+typedef enum {typeNb, typeOp, typeInst} typeNoeud;
 
 typedef struct {
   int val;
@@ -18,13 +18,18 @@ typedef struct {
   struct asa * noeud[2];
 } noeudOp;
 
+typedef struct {
+  struct asa * noeud[2];
+} noeudInst;
+
 typedef struct asa{
   typeNoeud type;
   int ninst;
- 
+
   union {
     feuilleNb nb;
     noeudOp op;
+    noeudInst inst;
   };
 } asa;
 
