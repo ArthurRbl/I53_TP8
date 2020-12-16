@@ -1840,10 +1840,11 @@ union YYSTYPE
 #line 13 "parser.y" /* yacc.c:1909  */
 
   int nb;
+  char id[64];
   struct asa * noeud;
  
 
-#line 70 "parser.h" /* yacc.c:1909  */
+#line 71 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

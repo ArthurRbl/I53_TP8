@@ -7,11 +7,15 @@
 
 #include "ts.h"
 
-typedef enum {typeNb, typeOp, typeInst} typeNoeud;
+typedef enum {typeNb, typeOp, typeInst, typeID} typeNoeud;
 
 typedef struct {
   int val;
 } feuilleNb;
+
+typedef struct {
+  char nom[64];
+} feuilleID;
 
 typedef struct {
   int ope;
@@ -28,6 +32,7 @@ typedef struct asa{
 
   union {
     feuilleNb nb;
+    feuilleID id;
     noeudOp op;
     noeudInst inst;
   };
@@ -41,6 +46,7 @@ void yyerror(const char * s);
   abstrait du type correspondant et renvoie un pointeur celui-ci
  */
 asa * creer_feuilleNb( int value );
+asa * creer_feuilleID(char * nom);
 asa * creer_noeudOp( int ope, asa * p1, asa * p2 );
 asa * creer_noeudInst(asa * p1, asa * p2);
 

@@ -12,6 +12,18 @@ asa * creer_feuilleNb(int val)
   return p;
 }
 
+asa * creer_feuilleID(char * name)
+{
+  asa *p;
+
+  if ((p = malloc(sizeof(asa))) == NULL)
+    yyerror("echec allocation mémoire");
+
+  p->type = typeID;
+  strcpy(p->id.nom, name);
+  return p;
+}
+
 asa * creer_noeudOp( int ope, asa * p1, asa * p2)
 {
   asa * p;
