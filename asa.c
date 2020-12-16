@@ -28,6 +28,21 @@ asa * creer_noeudOp( int ope, asa * p1, asa * p2)
   return p;
 }
 
+asa * creer_noeudInst(asa * p1, asa * p2)
+{
+  asa * p;
+
+  if ((p = malloc(sizeof(asa))) == NULL)
+    yyerror("echec allocation mémoire");
+
+  p->type = typeInst;
+  p->op.noeud[0]=p1;
+  p->op.noeud[1]=p2;
+  p->ninst = p1->ninst+p2->ninst+2;
+
+  return p;
+}
+
 
 void free_asa(asa *p)
 {

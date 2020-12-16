@@ -12,6 +12,7 @@
 
 %union{
   int nb;
+  char id[64];
   struct asa * noeud;
  };
 
@@ -19,10 +20,13 @@
 
 %token <nb> NB
 
-%token NL
+%token <id> ID
+
+%token NL PAR_O PAR_F VAR
 
 %type <noeud> EXP INST INSTS
 
+%right AFFECT
 %left '+' '-'
 %left '*' '/' '%'
 
@@ -34,7 +38,7 @@ PROG : INSTS                 { codegen($1); }
 ;
 
 INSTS: INST
-| INST INSTS
+| INST INSTS               { $$ = creer_noeudInst($1, $2); }
 ;
 
 INST: EXP NL
@@ -46,7 +50,7 @@ EXP : NB                   { $$ = creer_feuilleNb(yylval.nb); }
 | EXP '*' EXP              { $$ = creer_noeudOp('*', $1, $3); }
 | EXP '/' EXP              { $$ = creer_noeudOp('/', $1, $3); }
 | EXP '%' EXP              { $$ = creer_noeudOp('%', $1, $3); }
-| '(' EXP ')'              { $$ = $2; }
+| PAR_O EXP PAR_F              { $$ = $2; }
 ;
 
 %%

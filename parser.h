@@ -46,7 +46,12 @@ extern int yydebug;
   enum yytokentype
   {
     NB = 258,
-    NL = 259
+    ID = 259,
+    NL = 260,
+    PAR_O = 261,
+    PAR_F = 262,
+    VAR = 263,
+    AFFECT = 264
   };
 #endif
 
@@ -58,10 +63,11 @@ union YYSTYPE
 #line 13 "parser.y" /* yacc.c:1909  */
 
   int nb;
+  char id[64];
   struct asa * noeud;
  
 
-#line 65 "parser.h" /* yacc.c:1909  */
+#line 71 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

@@ -42,6 +42,7 @@ void yyerror(const char * s);
  */
 asa * creer_feuilleNb( int value );
 asa * creer_noeudOp( int ope, asa * p1, asa * p2 );
+asa * creer_noeudInst(asa * p1, asa * p2);
 
 void free_asa(asa *p);
 
